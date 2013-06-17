@@ -71,7 +71,7 @@ function themeDir() {
 }
 
 function timThumb( $src, $w=200, $h=200, $zc=1, $q=100 ) {
-  return get_stylesheet_directory_uri().'/scripts/timthumb/timthumb.php?src='.$src.'&w='.$w.'&h='.$h.'&zc='.$zc.'&q='.$q;
+  return get_stylesheet_directory_uri().'/assets/img/timthumb.php?src='.$src.'&w='.$w.'&h='.$h.'&zc='.$zc.'&q='.$q;
 }
 function get_images( $eventoID, $size = 'thumbnail') {
   
