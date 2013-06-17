@@ -9,7 +9,6 @@ body {
    height: 100%;
    position: absolute;
    z-index: 0;
-   padding: 0 !important;
 }
 
 h1 {
@@ -52,7 +51,6 @@ svg text {
 #menu{
    background-image:-webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(32,32,32,0.75)), to(rgba(0,0,0,0.7)));
    background-image:-moz-linear-gradient(top,bottom,from(rgba(32,32,32,0.75)), to(rgba(0,0,0.7)));
-   min-height: 50px;
 }
 #menu img{
    position: absolute;
@@ -73,17 +71,13 @@ svg text {
    font-size: 12px;
    list-style: none;
    border-radius: 15px;
-   text-shadow: none;
-   display: none;
 }
+
 .navbar .nav > li > a {
   float: none;
   padding: 10px 15px;
   text-decoration: none;
-  text-shadow: none;
-}
-.navbar .nav > li:hover > ul li {
-   display: block;
+  text-shadow: 0 1px 0 #FFFFFF;
 }
 
 /* ==========================================================================
@@ -133,7 +127,6 @@ svg text {
 
 
 .footer{
-   color:#222;
    position: fixed;
    top: 100%;
    margin-top: -50px;
@@ -146,9 +139,6 @@ svg text {
    background-color: #fa0;
 }
 
-.footer span span {  
-   padding: 0 5px;
-}
 .content-info { }
 
 
@@ -172,34 +162,3 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 @media (max-width: 767px) {
 
 }
-
-
-
-
-
-
-/* ==========================================================================
-   Estructura
-   ========================================================================== */
-
-
-.lista {}
-
-.elemento_lista {
-   /*margin:10px 0;*/
-   border:1px solid #aaa;
-   position: relative;
-   /*height: 200px;*/
-}
-/*.elemento_lista div {
-   padding: 2px;
-   width: 80%;
-   margin-left:20%;
-   display: inline-block;
-}
-.elemento_lista .img {
-   left: 0;
-   margin: 0;
-   padding: 0;
-   position: absolute;
-}*/
