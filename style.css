@@ -1,16 +1,14 @@
 /*
-Theme Name:         TIM
-Theme URI:          http://www.github.com/furenku/tim/
-Description:        basado en Roots (http://www.rootstheme.com)
-Version:            0.1
-Author:             furenku 
-Author URI:         http://benword.com/
-
-License:            MIT License
-License URI:        http://opensource.org/licenses/MIT
+Theme Name: TIM
+Template: Foundation
 */
 
+li {
+    list-style:none;
+}
 
-p {
-	font-family: 'Arial';
+
+#canvas {
+    width:300px;
+    height:300px;
 }

@@ -1,0 +1,17 @@
+<?php
+/*
+Template Name: Inicio
+*/
+
+get_header();
+
+
+for($i = 0; $i < 5; $i++) {
+    $lis .= foo_li("","","li");
+}
+
+echo foo_ul("","",$lis);
+
+
+get_footer();
+?>
