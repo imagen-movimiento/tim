@@ -91,15 +91,35 @@ jQuery(document).ready(function($){
 
    }
    
-   var toggleMenu(){
+   var toggleMenu = function(){
      if( menuOn ) {
-       canvas.animate({ left: -width/2 }, 1000);
-
+       var w = canvas.width() * 0.85;
+       canvas.animate({ left: -width/2, width: w }, 1000);
+       tim.animate({ left: -width/12 }, 1000);
      } else {
-       canvas.animate({ left: 0 }, 1000);
+       var w = canvas.width();
+       canvas.animate({ left: 0, width: w }, 1000);
+       tim.animate({ left: 0 }, 1000);
      }
 
+/*
+
+   var lis = $('#menu li');
+   var sublis = $('#menu li ul li');
+
+   tim.offset({ left : cX + x - 50, top : cY + y - 30 });
+
+   lis.click(function(e){
+     e.preventDefault();
+     toggleMenu();
+   });     
+
+
+
+*/
+
      menuOn != menuOn; 
+console.log(menuOn);
    }
 
 
