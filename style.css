@@ -7,8 +7,38 @@ li {
     list-style:none;
 }
 
+body {
+    overflow: hidden;
+}
+
+html,
+body,
+#canvas {
+    width:100%;
+    height:100%;
+}
 
 #canvas {
-    width:300px;
-    height:300px;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:#454545;
+}
+
+#menu_titulo {
+
+    font-weight:bold;
+    font-size:58px;
+    z-index:10;
+}
+
+#menu a,
+#menu_titulo a {
+    color: #aaa;
+
+}
+
+#menu li {
+    font-weight:bold;
+    font-size:18px;
 }

@@ -7,10 +7,10 @@ get_header();
 
 
 for($i = 0; $i < 5; $i++) {
-    $lis .= foo_li("","","li");
+    $lis .= foo_li("","","li".$i, "..." );
 }
 
-echo foo_ul("","",$lis);
+echo foo_ul("menu","",$lis);
 
 
 get_footer();

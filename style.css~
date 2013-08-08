@@ -2,3 +2,13 @@
 Theme Name: TIM
 Template: Foundation
 */
+
+li {
+    list-style:none;
+}
+
+
+#canvas {
+    width:300px;
+    height:300px;
+}

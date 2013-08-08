@@ -39,45 +39,148 @@ wp_head();
 
 jQuery(document).ready(function($){
 
-     var anim = 0.0;
-     var animate = function() {
-         /* console.log("anim"); */
-         anim+=0.01;
-         anim %= 360;
-         R.clear();
-         var lis = $('#menu li');
-         var h = 0;
-         /*for( var h = 0; h < 20; h++ ) { */
-             R.circle(50*h+50,50*h+50,30);
-             var noLis = lis.length;
-         
-             for( var i = 0; i < noLis; i++ ) {
-                 var x1 = Math.cos( anim + i * (360/noLis) * ( Math.PI / 180 ) );
-                 var y1 = Math.sin( anim + i * (360/noLis) * ( Math.PI / 180 ) );
-                 R.circle( x1*30 + 50*h+50, y1*30 + 50*h+50, 3);
+   var mouseX = 0;
+   var mouseY = 0;
+   var anim = 0.0;
 
-             lis.eq(i).offset({ left: x1*30 + 50*h+250 , top: y1*30 + 50*h+250 });
-             }
-         /*}*/
 
+   var showLis = function( li, r, x, y, cX, cY, clockwise, speed ){
+
+     var sublis = li.find('li');
+     var noLis = li.siblings().length +1;
+
+     var noSublis = sublis.length;
+     var spacing = 50;
+     var i = li.index();
+
+     var canvasX = canvas.offset().left;
+     var canvasY = canvas.offset().top;
+
+     if( clockwise ) {
+       spin = anim * speed;
      }
+     else {
+       spin = 360 - anim * speed;
+     }
+
+     var newX = cX + r * Math.cos( spin + i * (360/noLis) * ( Math.PI / 180 ) );
+     var newY = cY + r * Math.sin( spin + i * (360/noLis) * ( Math.PI / 180 ) );
+
+     R.circle( newX, newY, 2 );
+
+     li.offset({ left: newX + x + canvasX, top: newY + y + canvasY });
      
+     var d = Math.sqrt( Math.pow( mouseX - newX - x, 2 ) + Math.pow( mouseY - newY - y, 2 ) );
 
-     var R = Raphael("canvas", 1050, 550);
+     if( d < r ) {
+       li.css({ opacity: 1 });
+     }
+     else  {
+       li.css({ opacity: 0.4 });       
+     }
 
-     var lis = $('#menu li');
+     if( noSublis > 0 ) {
+       R.circle( newX, newY, r/2 ); 
+     }
+
      
+     sublis.each( function(i) {
+       var subli = $(this);
+       showLis(subli, r/2, x, y, newX, newY, !clockwise, speed * 3 );
+     });
 
-     lis.click(function(e){
-         e.preventDefault();
-         console.log("clickLI");
-         /* $("#canvas").fadeOut(); */
-     });     
+   }
+   
+   var toggleMenu = function(){
+     if( menuOn ) {
+       var w = canvas.width() * 0.85;
+       canvas.animate({ left: -width/2, width: w }, 1000);
+       tim.animate({ left: -width/12 }, 1000);
+     } else {
+       var w = canvas.width();
+       canvas.animate({ left: 0, width: w }, 1000);
+       tim.animate({ left: 0 }, 1000);
+     }
 
-     setInterval( animate, 20 );
+/*
+
+   var lis = $('#menu li');
+   var sublis = $('#menu li ul li');
+
+   tim.offset({ left : cX + x - 50, top : cY + y - 30 });
+
+   lis.click(function(e){
+     e.preventDefault();
+     toggleMenu();
+   });     
+
+
+
+*/
+
+     menuOn != menuOn; 
+console.log(menuOn);
+   }
+
+
+   var menuOn = true;
+   var canvas = $('#canvas');
+   var x = canvas.offset().left;
+   var y = canvas.offset().top;
+   
+   var w = canvas.width();
+   var h = canvas.height();
+
+   var cX = w/2;
+   var cY = h/2;
+
+   var animate = function() {
+
+     anim+=0.001;
+     anim %= 360;
+
+     R.clear();
+     var lis = $('#menu > li');
+     var h = 0;
+
+
+     var c = R.circle( cX, cY, 375 );
+     c.attr ("stroke", "#FFF");
+     c = R.circle( cX, cY, 250 );
+     c.attr ("stroke", "#EEE");
+
+     lis.each(function() {
+       var li = $(this);
+       showLis( li, 250, x, y, cX, cY, true, 1 );
+     });
+
+   }
+   
+   var width = $(window).width();
+   var height = $(window).height();
+
+   var R = Raphael("canvas", width, height );
+
+   var tim = $('#menu_titulo > a');
+   var lis = $('#menu li');
+   var sublis = $('#menu li ul li');
+
+   tim.offset({ left : cX + x - 50, top : cY + y - 30 });
+
+   lis.click(function(e){
+     e.preventDefault();
+     toggleMenu();
+   });     
+
+   setInterval( animate, 40 );
+
+   $('body').mousemove( function(e) {
+     mouseX = e.pageX; 
+     mouseY = e.pageY;
+   });
+
 
 });
-
 
 
 </script>
@@ -112,6 +215,6 @@ jQuery(document).ready(function($){
 
 <?php
 
-echo foo_div("canvas","","hola mundo");
+echo foo_div("canvas","","");
 
 ?>
