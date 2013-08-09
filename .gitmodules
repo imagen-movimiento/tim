@@ -1,0 +1,3 @@
+[submodule "scripts/columnizer"]
+	path = scripts/columnizer
+	url = https://github.com/adamwulf/Columnizer-jQuery-Plugin.git

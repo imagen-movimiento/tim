@@ -27,7 +27,7 @@ w<?php
 
 <script type="text/javascript" src="<?php echo themeDir(); ?>/scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="<?php echo themeDir(); ?>/scripts/raphael/raphael-min.js"></script>
-<script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/Columnizer-jQuery-Plugin/src/jquery.columnizer.js" type="text/javascript"></script>
+<script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/columnizer/src/jquery.columnizer.js" type="text/javascript"></script>
 
 <?php
 wp_head();
