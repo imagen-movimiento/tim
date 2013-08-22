@@ -1,0 +1,51 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Aug 21 17:56:09 2013
+;; Desktop file format version 206
+;; Emacs version 24.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/chamba/web/tim/wp-content/themes/tim/" "~/.emacs" "~/chamba/web/tim/wp-content/themes/tim/cpt/cpt.php" "~/chamba/web/footilities/funcionesHTML.php" "~/chamba/web/tim/wp-content/themes/tim/header.php"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/cpt/cpt.php"
+  "cpt.php"
+  'web-mode
+  '(auto-complete-mode yas-minor-mode linum-mode)
+  6382
+  '(5826 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/footilities/funcionesHTML.php"
+  "funcionesHTML.php"
+  'web-mode
+  '(auto-complete-mode yas-minor-mode linum-mode)
+  3088
+  '(3088 t)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/header.php"
+  "header.php"
+  'web-mode
+  '(auto-complete-mode yas-minor-mode linum-mode)
+  535
+  '(594 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
