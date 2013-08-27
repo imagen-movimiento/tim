@@ -1,7 +1,10 @@
 <?php
 
 require("utilidades/funcionesHTML.php");
-require("cpt/cpt.php");
-/* require("cpt/datepicker.php"); */
+require("backend/cpt.php");
+require("backend/metaboxes.php");
+require("backend/radio-taxonomies/Radio-Buttons-for-Taxonomies.php");
+
+/* require("backend/datepicker.php"); */
 
 ?>

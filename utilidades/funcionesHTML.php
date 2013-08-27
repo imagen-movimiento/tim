@@ -288,6 +288,19 @@ function foo_filter($content="",$filter="filter"){
   return apply_filters("the_".$filter,$content);
 }
 
+
+function foo_post(){
+  $arr = array(); 
+  $arr['ttl'] = foo_filter( get_the_title(), 'title');
+  $arr['ext'] = foo_filter( get_the_excerpt(), 'excerpt');
+  $arr['cnt'] = foo_filter( get_the_content(), 'content');
+  $arr['url'] = get_permalink( get_the_ID() );
+  $arr['img'] = foo_featImg( get_the_ID() );
+  return $arr;
+}
+
+
+
 function foo_strip( $content, $tag ) {
 	$content = preg_replace('/<'.$tag.'[^>]+./','', $content);
 	return $content;
