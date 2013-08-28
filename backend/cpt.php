@@ -68,6 +68,12 @@ function cpt() {
                      );
 
 
+
+  register_taxonomy_for_object_type('proyecto', 'entrada_proyecto');
+
+
+
+
   register_post_type( 'taller',
                      
                      array('labels' => array(
@@ -138,6 +144,65 @@ function cpt() {
 
 
   register_taxonomy_for_object_type('taller', 'entrada_taller');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  register_post_type( 'miembro', array(
+    'labels' => array(
+      'name' => __('Miembro', 'Miembro general name'),
+      'singular_name' => __('Miembro', 'Miembro singular name'),
+      'add_new' => __('Add New', 'miembro type item'),
+      'add_new_item' => __('Añadir Miembro'),
+      'edit' => __( 'Edit' ),
+      'edit_item' => __('Editar Miembro'),
+      'new_item' => __('Miembro Nuevo'),
+      'view_item' => __('Ver Miembro'),
+      'search_items' => __('Buscar Miembro'),
+      'not_found' => __('Nothing found in the Database.'),
+      'not_found_in_trash' => __('Nothing found in Trash'),
+      'parent_item_colon' => ''
+    ),
+    'description' => __( '' ),
+    'public' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'show_ui' => true,
+    'query_var' => true,
+    'menu_position' => 8,
+    'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png',
+    'rewrite' => true,
+    'capability_type' => 'post',
+    'hierarchical' => true,
+    
+    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'sticky', 'page-attributes'),
+    'has_archive' => true
+  ));
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -308,6 +373,15 @@ function convert_id_to_term_in_query($query) {
 add_filter('parse_query', 'convert_id_to_term_in_query');
 
 
+
+
+// crear taxonomía nueva "proyecto" al crear un nuevo proyecto
+
+add_action( 'publish_proyecto_tim', 'add_proyecto_term' );
+function add_proyecto_term( $post_ID ) {
+    $post = get_post( $post_ID ); 
+    wp_insert_term( $post->post_title, 'proyecto' );
+}
 
 
 
