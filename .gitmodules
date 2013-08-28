@@ -4,3 +4,6 @@
 [submodule "backend/radio-taxonomies"]
 	path = backend/radio-taxonomies
 	url = https://github.com/stephenh1988/Radio-Buttons-for-Taxonomies.git
+[submodule "footilities"]
+	path = footilities
+	url = https://furenku@github.com/foocoop/footilities.git

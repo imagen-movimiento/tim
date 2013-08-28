@@ -1,4 +1,4 @@
-w<?php
+<?php
 /**
  * Header
  *
@@ -48,6 +48,7 @@ jQuery(document).ready(function($){
    var showLis = function( li, r, x, y, cX, cY, clockwise, speed ){
 
      var sublis = li.find('li');
+
      var noLis = li.siblings().length +1;
 
      var noSublis = sublis.length;
@@ -149,6 +150,23 @@ jQuery(document).ready(function($){
 
    }
 
+   var setupPost = function(){
+     $('.single .sidebar a').click(function(e){
+       e.preventDefault();
+       e.stopPropagation();
+       
+       var url = $(this).attr('href');
+
+       $.get(url, function(data) {
+         tres.html(data);                                                     
+         dos.animate({'left':-width * 1.675},1000);
+         tres.animate({'left':-width * 0.925 },1000); });
+
+       return false;
+       
+     });
+   }
+
 
    var menuOn = true;
    var canvas = $('#canvas');
@@ -242,17 +260,29 @@ jQuery(document).ready(function($){
    
    
    
-   var lis = $('#menu li');
+   var lis = $('#menu > li');
    var sublis = $('#menu li ul li');
-
+   var alllis = $('#menu li');
    tim.offset({ left : cX + x - 50, top : cY + y - 30 });
 
-   lis.click(function(e){
+   alllis.click(function(e){
      e.preventDefault();
      e.stopPropagation();
-     toggleMenu();
-     currentLi = $(this).parent().parent();
-   });     
+     
+     var url = $(this).find('a').attr('href');
+
+     currentLi = $(this);
+
+     $.get(url, function(data) {
+       dos.html(data);
+       setupPost();
+       toggleMenu();       
+     });
+     
+   });
+
+
+
 
    setInterval( animate, 40 );
 
@@ -278,7 +308,7 @@ jQuery(document).ready(function($){
    });
             
 
-//   $('#contenido .texto').hide();//columnize({width:'200px'});
+   $('.single .contenido').columnize({width:'200px'});
 
 
 });
@@ -288,20 +318,109 @@ jQuery(document).ready(function($){
 
 
 <body <?php body_class(); ?>>
-
+  <?php
+  echo foo_div("canvas","","");
+  ?>
+  
 	<nav class="top-bar">
 		<ul class="title-area">
 			<li class="name"><h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo('name'); ?></a></h1></li>
 			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 		</ul>
 		<section class="top-bar-section">
-			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'menu_class' => 'left', 'container' => '', 'fallback_cb' => 'foundation_page_menu', 'walker' => new foundation_navigation() ) ); ?>
+		  <?php
+                  //wp_nav_menu( array( 'theme_location' => 'header-menu', 'menu_class' => 'left', 'container' => '', 'fallback_cb' => 'foundation_page_menu', 'walker' => new foundation_navigation() ) );
+
+
+
+                  ?>
 		</section>
 	</nav>
 
-	<?php $header =  get_header_textcolor();
-	if ( $header !== "blank" ) : ?>
-	<header class="site-header" <?php $header_image = get_header_image(); if ( ! empty( $header_image ) ) : ?> style="background:url('<?php echo esc_url( $header_image ); ?>');" <?php endif; ?>>
+	<?php
+
+        $lis = "";
+
+
+        // talleres: 
+
+        $link = get_post_type_archive_link('taller');
+        $sublis = "";
+        $sublis .= foo_li("","", foo_link( 'Oferta', $link  ) );
+        $sublis .= foo_li("","", foo_link( 'Pasados', $link  ) );
+        $sublis .= foo_li("","", foo_link( 'Futuros', $link  ) );
+
+        $sublis = foo_ul("","",$sublis);
+        
+        $lis .= foo_li("","", foo_link( 'Talleres', $link  ) . $sublis );
+
+        $sublis = "";
+        
+
+
+        // miembros:
+
+        $link = get_post_type_archive_link('miembro');
+        $sublis = "";
+        $query = new WP_Query(array('post_type'=>'miembro'));
+        while($query->have_posts()) {
+          $query -> the_post(); $p = foo_post();
+          $sublis .= foo_li("","",$p['ttl'], $p['url']);
+        }
+
+        $sublis = foo_ul("","",$sublis);
+        
+        $lis .= foo_li("","", foo_link( 'Miembros', $link  ) . $sublis );
+
+
+        $link = get_post_type_archive_link('miembro');
+
+
+
+
+
+        // LCC
+        $link = get_permalink(get_page_by_title('Laboratorio de Código Creativo')->ID);
+        $sublis = "";
+        
+        $query = new WP_Query(array('post_type'=>'lcc','post_parent'=>0));
+        while($query->have_posts()) {
+          $query -> the_post(); $p = foo_post();
+          $sublis .= foo_li("","",$p['ttl'], $p['url']);
+        }
+
+        $sublis = foo_ul("","",$sublis);
+        
+        $lis .= foo_li("","", foo_link( 'Laboratorio de Código Creativo' . $sublis, $link ) );
+
+        // LCC
+
+        $link = get_post_type_archive_link('proyecto_tim');
+        $sublis = "";
+        
+        $query = new WP_Query(array('post_type'=>'proyecto_tim'));
+        while($query->have_posts()) {
+          $query -> the_post(); $p = foo_post();
+          $sublis .= foo_li("","",foo_post()['ttl']);
+        }
+
+        $sublis = foo_ul("","",$sublis);
+        
+        $lis .= foo_li("","", foo_link( 'Proyectos' . $sublis, $link ) );
+
+        
+        echo foo_ul( "menu", "", $lis );
+        echo foo_div("menu_titulo","",foo_link( "TIM", site_url()));
+
+        
+        ?>
+
+
+
+
+
+        
+        <header class="site-header" <?php $header_image = get_header_image(); if ( ! empty( $header_image ) ) : ?> style="background:url('<?php echo esc_url( $header_image ); ?>');" 
 		<div class="row">
 			<div class="large-12 columns">
 				<h2><a style="color:#<?php header_textcolor(); ?>;" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'description' ); ?></a></h2>
@@ -310,12 +429,10 @@ jQuery(document).ready(function($){
 	</header>
 	<?php endif; ?>
 
-<!-- Begin Page -->
+
+        <?php
+        echo foo_div("","hidden",site_url());
+        ?>
+        
+
 <div class="row">
-
-
-<?php
-
-echo foo_div("canvas","","");
-
-?>

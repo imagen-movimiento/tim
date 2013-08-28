@@ -1,5 +1,29 @@
 <?php
 
-require("utilidades/funcionesHTML.php");
+require("footilities/funcionesHTML.php");
+
+require("backend/cpt.php");
+require("backend/metaboxes.php");
+require("backend/radio-taxonomies/Radio-Buttons-for-Taxonomies.php");
+
+/*
+function cargar_link()
+{  
+ global $post;
+ $link = $_POST['link'];
+ die( $lis );
+
+}
+
+add_action( 'wp_ajax_nopriv_cargar_link_menu', 'cargar_link_menu' );  
+add_action( 'wp_ajax_cargar_link_menu', 'cargar_link_menu' );  
+
+*/
+
+
+function custom_excerpt_length( $length ) {
+  return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 ?>

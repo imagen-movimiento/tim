@@ -5,7 +5,7 @@ function custom_meta_box() {
   remove_meta_box( 'proyectodiv', 'entrada_proyecto', 'side' );
 
   add_meta_box( 'proyectodiv', 'Proyecto', 'proyecto_meta_box', 'entrada_proyecto', 'side' );
-  add_meta_box( 'diasdiv', 'Días de la semana', 'fechas_taller_meta_box', 'taller', 'side' );
+  add_meta_box( 'diasdiv', 'Fechas', 'fechas_taller_meta_box', 'taller', 'side' );
 
 }
 add_action('add_meta_boxes', 'custom_meta_box');
@@ -76,7 +76,6 @@ add_action( 'save_post', 'proyecto_save_postdata' );
 
 
 
-/* Prints the taxonomy box content */
 function fechas_taller_meta_box($post) {
 
   $nombres_dias = array ( 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sabado', 'domingo' );
@@ -92,34 +91,34 @@ function fechas_taller_meta_box($post) {
 
 ?>
 
-    <form id="fechas_form">
+<form id="fechas_form">
   <div id="fechas">
 
 Del
-<input class="fecha" name="fecha_inicio" type="textbox" value="<?php echo $fecha_inicio; ?>"/>
+    <input class="fecha" name="fecha_inicio" type="textbox" value="<?php echo $fecha_inicio; ?>"/>
 </br>
 al
 <input class="fecha" name="fecha_final"  type="textbox" value="<?php echo $fecha_final; ?>"/>  
-</div>
+  </div>
 
-<div id="dias_semana_div">
+  <div id="dias_semana_div">
     <?php 
     foreach( $nombres_dias as $dia ) {
-      $echo .= '<label><input type="checkbox" name="dias_semana[]" value="'.$dia.'" '. (in_array($dia,$dias_checked ) ? 'checked':'' ).'>'.$dia.'</label>';
+      $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="'.$dia.'" '. (in_array($dia,$dias_checked ) ? 'checked':'' ).'>'.$dia.'</label></li>';
     }
 
     echo $echo;
     ?>
-</div>
+  </div>
 </form>
 
 
 <script>
-jQuery(document).ready(function(){
+ jQuery(document).ready(function(){
    jQuery('.fecha').datepicker({
      dateFormat : 'dd/mm/yy'
    });
-});
+ });
 </script>
 
 <?php
@@ -190,11 +189,11 @@ function remove_menus()
     remove_menu_page( 'upload.php' ); // Media
     remove_menu_page( 'link-manager.php' ); // Links
     remove_menu_page( 'edit-comments.php' ); // Comments
-    remove_menu_page( 'plugins.php' ); // Plugins
-    remove_menu_page( 'themes.php' ); // Appearance
+   // remove_menu_page( 'plugins.php' ); // Plugins
+ //   remove_menu_page( 'themes.php' ); // Appearance
     remove_menu_page( 'users.php' ); // Users
     remove_menu_page( 'tools.php' ); // Tools
-    remove_menu_page(‘options-general.php’); // Settings
+    remove_menu_page('options-general.php'); // Settings
 
 
 }
