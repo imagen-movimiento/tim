@@ -40,7 +40,7 @@ while(have_posts()){
     $contenido .= foo_div("","topicos sidebar large-4 columns",$topicos);
     $contenido = foo_div("","post", $contenido );
     $echo .= foo_div("fondo_post","",foo_curtain( foo_img( $p['img'] ), $contenido ) );
-    $echo = foo_div("","single row",$echo);
+    $echo = foo_div("","single lcc row",$echo);
 
     echo $echo;    
 

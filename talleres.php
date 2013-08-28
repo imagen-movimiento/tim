@@ -1,0 +1,29 @@
+<?php
+/* Template Name: Talleres */
+
+//$posts = "";
+
+while(have_posts()){
+  if(have_posts()){
+    the_post();
+
+  //  $p = foo_post();
+    $echo = "";
+    //$echo .= foo_div("","titulo",$foo['ttl']);
+    $echo .= foo_div("","imagen", foo_img( $foo['img'] ) );
+    $echo .= foo_div("","info", $info );
+    $echo .= foo_div("","extracto", $foo['ext'] );
+    $echo = foo_li("","taller", $echo, $foo['url'] );
+
+//    $posts .= $echo;
+    
+
+
+  }
+echo foo_div("talleres","row",$posts);
+
+}
+
+
+
+?>

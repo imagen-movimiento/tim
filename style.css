@@ -134,6 +134,11 @@ body,
 
 }
 
+
+#menu ul, #menu li {
+    width:auto;
+    max-width:400px;
+}
 #menu li {
     font-weight:bold;
     font-size:18px;
@@ -207,7 +212,7 @@ body,
     color:#ccc;
 }
 .single .sidebar a, h1, h2, h3, h4, h5, h6 {
-    color:#fff !important;
+    /* color:#fff; */
 }
 
 
@@ -237,3 +242,48 @@ body,
     width:30%;
     text-align:center;
 }
+
+
+
+.posts img {
+    width:100% !important;
+}
+
+
+#talleres .texto div  {
+    padding:10px;
+    font-size:17px;
+}
+
+#talleres .info {
+    font-weight:bold;
+}
+
+
+
+.lcc h1,h2,h3,h4,h5,h6 {
+    color:#555;
+}
+
+
+
+nav.top-bar {
+    z-index:999;
+}
+
+#menu_arriba li {
+    display:inline-block;
+}
+#menu_arriba > li a {
+    color:#888;
+}
+
+#menu_arriba li a:hover {
+    color:#bbb;
+}
+
+#menu_arriba li ul li,
+#menu_arriba li ul a {
+    display:none;
+}
+

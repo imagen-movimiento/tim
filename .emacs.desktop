@@ -2,7 +2,7 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Wed Aug 21 17:56:09 2013
+;; Created Wed Aug 28 06:17:28 2013
 ;; Desktop file format version 206
 ;; Emacs version 24.3.1
 
@@ -10,41 +10,96 @@
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring nil)
+(setq search-ring '("	" "#menu" "excerpt" "length" "columniz" "column" "dos" "cookie" "menu" "sub"))
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '("~/chamba/web/tim/wp-content/themes/tim/" "~/.emacs" "~/chamba/web/tim/wp-content/themes/tim/cpt/cpt.php" "~/chamba/web/footilities/funcionesHTML.php" "~/chamba/web/tim/wp-content/themes/tim/header.php"))
+(setq file-name-history '("/home/furenku/chamba/web/tim/wp-content/themes/tim/archive-taller.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/header.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/archive-taller.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/archive-taller.php~" "/home/furenku/chamba/web/tim/wp-content/themes/tim/talleres.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/talleres.php~" "/home/furenku/chamba/web/tim/wp-content/themes/tim/talleres.php~~" "/home/furenku/chamba/web/tim/wp-content/themes/tim/talleres.php~" "/home/furenku/chamba/web/tim/wp-content/themes/tim/backend/metaboxes.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/archive-taller.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/single-lcc.php" "/home/furenku/chamba/web/tim/wp-content/themes/Foundation/functions.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/functions.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/inicio.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/lcc.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/functions.php" "/home/furenku/chamba/web/vocal/wp-content/themes/vocal/functions.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/style.css" "/home/furenku/chamba/web/tim/wp-content/themes/tim/style.css~" "/home/furenku/chamba/web/tim/wp-content/themes/tim/functions.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/backend/metaboxes.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/backend/cpt.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/inicio.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/style.css" "/home/furenku/chamba/web/tim/wp-content/themes/tim/inicio.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/header.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/inicio.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/header.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/archive-taller.php" "/home/furenku/chamba/web/tim/wp-content/themes/tim/archive-talleres.php"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "/home/furenku/chamba/web/tim/wp-content/themes/tim/cpt/cpt.php"
-  "cpt.php"
-  'web-mode
-  '(auto-complete-mode yas-minor-mode linum-mode)
-  6382
-  '(5826 nil)
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/style.css"
+  "style.css"
+  'css-mode
+  '(linum-mode auto-complete-mode auto-indent-minor-mode)
+  3219
+  '(3125 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+  '((buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
-  "/home/furenku/chamba/web/footilities/funcionesHTML.php"
-  "funcionesHTML.php"
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/archive-taller.php"
+  "archive-taller.php"
   'web-mode
-  '(auto-complete-mode yas-minor-mode linum-mode)
-  3088
-  '(3088 t)
+  '(linum-mode auto-indent-minor-mode)
+  638
+  '(878 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
   "/home/furenku/chamba/web/tim/wp-content/themes/tim/header.php"
   "header.php"
   'web-mode
-  '(auto-complete-mode yas-minor-mode linum-mode)
-  535
-  '(594 nil)
+  '(linum-mode auto-complete-mode auto-indent-minor-mode)
+  8247
+  '(4775 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/backend/metaboxes.php"
+  "metaboxes.php"
+  'web-mode
+  '(linum-mode auto-indent-minor-mode)
+  1594
+  '(4481 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/lcc.php"
+  "lcc.php"
+  'web-mode
+  '(linum-mode auto-indent-minor-mode)
+  6
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/single-lcc.php"
+  "single-lcc.php"
+  'web-mode
+  '(linum-mode auto-indent-minor-mode)
+  1142
+  '(1271 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/inicio.php"
+  "inicio.php"
+  'web-mode
+  '(linum-mode auto-indent-minor-mode)
+  1493
+  '(1319 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/furenku/chamba/web/tim/wp-content/themes/tim/functions.php"
+  "functions.php"
+  'web-mode
+  '(linum-mode auto-indent-minor-mode)
+  560
+  '(585 nil)
   nil
   nil
   '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))

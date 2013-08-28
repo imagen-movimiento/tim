@@ -86,9 +86,9 @@ function fechas_taller_meta_box($post) {
   $fecha_inicio = get_post_meta( $post->ID, 'fecha_inicio', true  );
   $fecha_final = get_post_meta( $post->ID, 'fecha_final', true  );
   $dias_checked = get_post_meta( $post->ID, 'dias_semana', true  );
-
+  
   wp_nonce_field( plugin_basename( __FILE__ ), 'fechas_taller_noncename' );
-
+  
 ?>
 
 <form id="fechas_form">
@@ -104,7 +104,12 @@ al
   <div id="dias_semana_div">
     <?php 
     foreach( $nombres_dias as $dia ) {
-      $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="'.$dia.'" '. (in_array($dia,$dias_checked ) ? 'checked':'' ).'>'.$dia.'</label></li>';
+      if(count($dias_checked[0])>0) {
+        $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="'.$dia.'" '. ( is_array($dias_checked) && in_array($dia,$dias_checked ) ? 'checked':'' ).'>'.$dia.'</label></li>';
+      }
+      else {
+      $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="'.$dia.'">'.$dia.'</label></li>';
+      }
     }
 
     echo $echo;
@@ -152,9 +157,9 @@ function fechas_taller_save_postdata( $post_id ) {
 
   
   
-  add_post_meta($post_id, 'dias_semana', $dias, true );
-  add_post_meta($post_id, 'fecha_final', $fecha_final, true );
-  add_post_meta($post_id, 'fecha_final', $fecha_final, true );
+  update_post_meta($post_id, 'dias_semana', $dias );
+  update_post_meta($post_id, 'fecha_inicio', $fecha_inicio );
+  update_post_meta($post_id, 'fecha_final', $fecha_final );
 
 }
 
