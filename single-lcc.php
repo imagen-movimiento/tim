@@ -1,6 +1,5 @@
 <?php
 
-
 while( have_posts() ) {
   if( have_posts() ) {
     the_post();
@@ -57,6 +56,5 @@ while( have_posts() ) {
   }
 
 }
-
 
 ?>

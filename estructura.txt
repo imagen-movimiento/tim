@@ -1,0 +1,9 @@
+
+
+encapsular cargado ajax y animacion
+
+
+loadSlide(url,'#dos','#tres');
+
+
+

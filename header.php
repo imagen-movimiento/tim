@@ -48,7 +48,6 @@ $lis = "";
 // talleres: 
 
 $link = get_post_type_archive_link('taller');
-/*$link = get_permalink(get_page_by_title('Talleres')->ID);*/
 $sublis = "";
 $sublis .= foo_li("","", foo_link( 'Oferta', $link  ) );
 $sublis .= foo_li("","", foo_link( 'Pasados', $link  ) );
@@ -77,13 +76,10 @@ $sublis = foo_ul("","",$sublis);
 $lis .= foo_li("","", foo_link( 'Miembros', $link  ) . $sublis );
 
 
-$link = get_post_type_archive_link('miembro');
-
-
-
 
 
 // LCC
+
 $link = get_permalink(get_page_by_title('Laboratorio de Código Creativo')->ID);
 $sublis = "";
 
@@ -97,7 +93,9 @@ $sublis = foo_ul("","",$sublis);
 
 $lis .= foo_li("","", foo_link( 'Laboratorio de Código Creativo' . $sublis, $link ) );
 
-// LCC
+
+
+// proyectos
 
 $link = get_post_type_archive_link('proyecto_tim');
 $sublis = "";
@@ -142,11 +140,6 @@ $lis .= foo_li("","", foo_link( 'Proyectos' . $sublis, $link ) );
         
         ?>
 
-
-
-
-
-        
         <header class="site-header" <?php $header_image = get_header_image(); if ( ! empty( $header_image ) ) : ?> style="background:url('<?php echo esc_url( $header_image ); ?>');" 
 		<div class="row">
 			<div class="large-12 columns">

@@ -10,7 +10,7 @@ function custom_meta_box() {
 }
 add_action('add_meta_boxes', 'custom_meta_box');
 
-/* Prints the taxonomy box content */
+
 function proyecto_meta_box($post) {
 
   $tax_name = 'proyecto';

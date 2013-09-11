@@ -1,15 +1,13 @@
 <?php
 
 $posts = "";
-$claseS = "taller";
-$clasePl = "talleres";
-$titulo = "Talleres";
+$claseS = "miembro";
+$clasePl = "miembros";
+$titulo = "Miembros";
 
 if( have_posts() ) {
     while( have_posts() ) {
         the_post();
-        var_dump($post);
-
         $p = foo_post();
         $echo = "";
         $info = "";
@@ -46,11 +44,16 @@ if( have_posts() ) {
         $posts .= $echo;
 
     }
-
+    echo $posts;
     $echo = foo_h($titulo,1);
     $echo .= foo_div($clasePl,"posts sidebar large-12 columns",$posts);
-    echo $echo;
 
 }
+
+global $template;
+echo $template;
+
+echo $echo;
+
 
 ?>
