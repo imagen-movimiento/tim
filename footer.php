@@ -318,45 +318,79 @@
 
 
      var Cortina = function(selector){
+
          this.bgcolor = "#eeeeee";
          this.div = $(selector);
+         this.selector = selector;
+         this.contenido = $(selector + " .contenido");
+         this.titulo = $(selector + " .titulo");
          this.width = "300px";
          this.load = function(html) {
-             if( this.div.length !== 0 ) {
-                 this.div.html( html );
+             if( this.contenido.length !== 0 ) {
+                 this.contenido.html( html );
                  
-
              }
-
          }
 
-//       div.css({backgroundColor:this.bgcolor});
-
          this.collapse = function(){
-             this.div.animate({width: "30px"},1000);
+             var tituloW = this.titulo.width();
+             this.div.animate(
+                 { width: tituloW + "px" },
+                 1000,
+                 function(){
+                     this.collapsed = true;
+                 }
+             );
          }
 
          this.expand = function(){
-             this.div.animate({width: this.width},1000);
+             this.div.animate(
+                 { width: this.width },
+                 1000,
+                 function(){
+                     this.collapsed = false;
+                 }
+             );
          }
+
+         var cortina = this;
+
+         this.titulo.click(function() {
+             if( cortina.collapsed ) {
+                 cortina.collapse();
+                 cortina.collapsed = false;
+             }
+             else {
+                 cortina.expand();
+                 cortina.collapsed = true;
+             }
+         });
+
 
      }
 
 
+
+     var sls = [];
+
      var c = new Cortina('#sl1');
+
      c.load('<a href="#">link</a>');
 
-     c.collapse();
+     var sliders = $('.slider');
 
-    setTimeout( function(){ c.expand(); }, 3000);
+     sliders.each(function(i){
+         var sl = new Cortina( '#' + $(this).attr('id') );
+         sls.push( sl );
+     });
+
+     /* for(i in sls){
+     var sl = sls[i];
+     sl.collapse();
+     } */
 
 
-
-
-
-
-
-});
+ });
 
 
 
@@ -364,10 +398,31 @@
 
 </script>
 
+<div id="sliders">
 
-<div id="sl1"></div>
+    <div id="sl1" class="slider">
+        <div class="titulo">
+            <div class="txt_vertical">texto</div>
+        </div>
+        <div class="contenido"></div>
+    </div>
 
-<div id="sl2"></div>
+    <div id="sl2" class="slider">
+        <div class="titulo">
+            <div class="txt_vertical">texto</div>
+        </div>
+        <div class="contenido"></div>
+    </div>
+
+    <div id="sl3" class="slider">
+        <div class="titulo">
+            <div class="txt_vertical">texto</div>
+        </div>
+        <div class="contenido"></div>
+    </div>
+
+</div>
+
 
 
 </html>

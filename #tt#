@@ -1,0 +1,11 @@
+
+         this.titulo.click(function() {
+             if( this.collapsed ) {
+                 this.collapse();
+                 this.collapsed = false;
+             }
+             else {
+                 this.expand();
+                 collapsed = true;
+             }
+         });

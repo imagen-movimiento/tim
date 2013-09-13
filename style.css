@@ -1,14 +1,14 @@
 /*
-Theme Name: TIM
-Template: Foundation
-*/
+  Theme Name: TIM
+  Template: Foundation
+  */
 @import url("footilities/foo.css");
 li {
     list-style:none;
 }
 
 body {
-    /* overflow: hidden; */
+/* overflow: hidden; */
 }
 
 html,
@@ -68,18 +68,18 @@ body,
 }
 
 /*
-#cuatro .fondo {
-    position:absolute;
-    z-index:1;
-    background-color:#121212;
-}
-#cuatro .codigo {
-    left:0;
-    z-index:10;
-    position:absolute;
-    color:#fff;
-}
-*/
+  #cuatro .fondo {
+  position:absolute;
+  z-index:1;
+  background-color:#121212;
+  }
+  #cuatro .codigo {
+  left:0;
+  z-index:10;
+  position:absolute;
+  color:#fff;
+  }
+  */
 
 
 #sidebar{
@@ -214,7 +214,7 @@ body,
     color:#ccc;
 }
 .single .sidebar a, h1, h2, h3, h4, h5, h6 {
-    /* color:#fff; */
+/* color:#fff; */
 }
 
 
@@ -295,17 +295,58 @@ nav.top-bar {
 
 
 
-#sl1,
-#sl2 {
-    position: absolute;
-    border:1px solid red;
-    display:block;
-    width:300px;
-    height:300px;
-    left:200px;
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+
 }
 
-#sl2 {
-    border:1px solid blue;
-    left:500px;
+.slider > div {
+    padding: 20px 0;
+    display: inline-block;
+    //float:left;
+    position: absolute;
+    height: 100%;
+}
+
+.slider .titulo {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    width:50px;
+
+
+
+}
+
+.slider .contenido {
+    padding-left:10px;
+    left:50px;
+    width:250px;
+    background-color:#444;
+    color:#FFF;
+}
+
+
+.txt_vertical {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* Should be unset in IE9+ I think. */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
