@@ -1,9 +1,8 @@
 
 
-encapsular cargado ajax y animacion
 
 
-loadSlide(url,'#dos','#tres');
+1. link dentro de slider hace que se cree un nuevo slider y se cargue contenido en ese mismo nuevo
 
 
 

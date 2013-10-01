@@ -1,5 +1,7 @@
 <?php
-/**
+
+ /*
+ *
  * Footer
  *
  * Displays content shown in the footer section
@@ -7,7 +9,9 @@
  * @package WordPress
  * @subpackage Foundation, for WordPress
  * @since Foundation, for WordPress 4.0
+ *
  */
+
 ?>
 
 </div>
@@ -26,6 +30,17 @@
 <!-- End Footer -->
 
 <?php wp_footer(); ?>
+
+
+
+
+<div id="sliders_mask">
+<div id="sliders"></div>
+</div>
+
+</body>
+
+
 
 </body>
 
@@ -317,77 +332,29 @@
 
 
 
-     var Cortina = function(selector){
 
-         this.bgcolor = "#eeeeee";
-         this.div = $(selector);
-         this.selector = selector;
-         this.contenido = $(selector + " .contenido");
-         this.titulo = $(selector + " .titulo");
-         this.width = "300px";
-         this.load = function(html) {
-             if( this.contenido.length !== 0 ) {
-                 this.contenido.html( html );
-                 
-             }
-         }
+     var s = $('#sliders');
 
-         this.collapse = function(){
-             var tituloW = this.titulo.width();
-             this.div.animate(
-                 { width: tituloW + "px" },
-                 1000,
-                 function(){
-                     this.collapsed = true;
-                 }
-             );
-         }
-
-         this.expand = function(){
-             this.div.animate(
-                 { width: this.width },
-                 1000,
-                 function(){
-                     this.collapsed = false;
-                 }
-             );
-         }
-
-         var cortina = this;
-
-         this.titulo.click(function() {
-             if( cortina.collapsed ) {
-                 cortina.collapse();
-                 cortina.collapsed = false;
-             }
-             else {
-                 cortina.expand();
-                 cortina.collapsed = true;
-             }
-         });
+     var cs = new Cortinas( s );
+     var txt = '<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. <a href="http://google.com">Link</a></p>';
 
 
-     }
+     cs.añadir("hola",txt);
+     cs.añadir("titulo bastante mas largo",txt);
+
+     cs.añadir("hdola",txt);
+
+//     cs.quitar();
 
 
+      cs.collapse();
 
-     var sls = [];
 
-     var c = new Cortina('#sl1');
-
-     c.load('<a href="#">link</a>');
-
-     var sliders = $('.slider');
-
-     sliders.each(function(i){
-         var sl = new Cortina( '#' + $(this).attr('id') );
-         sls.push( sl );
+     $('.slider .txt_vertical').each(function(){
+         $(this).width( $(this).parent().height() );
+         $(this).offset({ left : $(this).parent().offset().left });
+         $(this).offset({ top : $(this).parent().offset().top });
      });
-
-     /* for(i in sls){
-     var sl = sls[i];
-     sl.collapse();
-     } */
 
 
  });
@@ -398,30 +365,6 @@
 
 </script>
 
-<div id="sliders">
-
-    <div id="sl1" class="slider">
-        <div class="titulo">
-            <div class="txt_vertical">texto</div>
-        </div>
-        <div class="contenido"></div>
-    </div>
-
-    <div id="sl2" class="slider">
-        <div class="titulo">
-            <div class="txt_vertical">texto</div>
-        </div>
-        <div class="contenido"></div>
-    </div>
-
-    <div id="sl3" class="slider">
-        <div class="titulo">
-            <div class="txt_vertical">texto</div>
-        </div>
-        <div class="contenido"></div>
-    </div>
-
-</div>
 
 
 

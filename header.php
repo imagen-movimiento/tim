@@ -29,6 +29,8 @@
 <script type="text/javascript" src="<?php echo themeDir(); ?>/scripts/raphael/raphael-min.js"></script>
 <script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/columnizer/src/jquery.columnizer.js" type="text/javascript"></script>
 
+<script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/collapsable.js/collapsable.js" type="text/javascript"></script>
+
 <?php
 wp_head();
 ?>
@@ -140,20 +142,15 @@ $lis .= foo_li("","", foo_link( 'Proyectos' . $sublis, $link ) );
         
         ?>
 
-        <header class="site-header" <?php $header_image = get_header_image(); if ( ! empty( $header_image ) ) : ?> style="background:url('<?php echo esc_url( $header_image ); ?>');" 
+        <header class="site-header">
 		<div class="row">
 			<div class="large-12 columns">
-			  <h2><a style="color:#<?php header_textcolor(); ?>;" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'description' ); ?></a></h2>
-
-
                           <?php
-                          echo foo_div("menu_arriba","",$lis);
+//                          echo foo_div("menu_arriba","",$lis);
                           ?>
-                          
 			</div>
 		</div>
 	</header>
-	<?php endif; ?>
 
 
         <?php

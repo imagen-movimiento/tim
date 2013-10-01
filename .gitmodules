@@ -7,3 +7,6 @@
 [submodule "footilities"]
 	path = footilities
 	url = https://furenku@github.com/foocoop/footilities.git
+[submodule "scripts/collapsable.js"]
+	path = scripts/collapsable.js
+	url = https://github.com/furenku/collapsable.js.git
