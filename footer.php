@@ -1,6 +1,7 @@
+
 <?php
 
- /*
+/*
  *
  * Footer
  *
@@ -35,7 +36,7 @@
 
 
 <div id="sliders_mask">
-<div id="sliders"></div>
+    <div id="sliders"></div>
 </div>
 
 </body>
@@ -340,28 +341,45 @@
 
 
      cs.añadir("hola",txt);
-     cs.añadir("titulo bastante mas largo",txt);
 
-     cs.añadir("hdola",txt);
+     /* cs.añadir("titulo bastante mas largo",txt);
 
-//     cs.quitar();
+     cs.añadir("hdola",txt); */
 
-
-      cs.collapse();
+     //     cs.quitar();
 
 
-     $('.slider .txt_vertical').each(function(){
-         $(this).width( $(this).parent().height() );
-         $(this).offset({ left : $(this).parent().offset().left });
-         $(this).offset({ top : $(this).parent().offset().top });
-     });
+     cs.collapse();
 
 
+     var cortinas = cs.cortinas;
+
+     for(i in cortinas)
+     {
+         var links = cortinas[i].contenido.find('a');
+         links.each(
+             function()
+             {
+                 var texto = $(this).text();
+
+                 var contenido = "...";
+                 var cortinasParent = cortinas[i].parent;
+                 $(this).click(
+                     function(e)
+                     {
+                         e.preventDefault();
+                         e.stopPropagation();
+                         cortinasParent.añadir( texto, contenido);
+                         cortinasParent.cortinas[cortinas.length-1].expand();
+                         
+                     });
+             });
+         
+     }
+
+     
+          
  });
-
-
-
-
 
 </script>
 
