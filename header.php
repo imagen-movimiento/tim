@@ -159,3 +159,17 @@ $lis .= foo_li("","", foo_link( 'Proyectos' . $sublis, $link ) );
         
 
 <div class="row">
+
+
+
+
+
+<?php
+/*
+
+1. cargar portada 
+2. ponerla en el slider
+3. configurar links de aquello que se meta al slider
+
+*/
+?>

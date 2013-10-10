@@ -334,7 +334,8 @@
 
 
 
-     var s = $('#sliders');
+    
+var s = $('#sliders');
 
      var cs = new Cortinas( s );
      var txt = '<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. <a href="http://google.com">Link</a></p>';
@@ -342,10 +343,7 @@
 
      cs.añadir("hola",txt);
 
-     /* cs.añadir("titulo bastante mas largo",txt);
-
-     cs.añadir("hdola",txt); */
-
+    
      //     cs.quitar();
 
 
@@ -378,7 +376,6 @@
      }
 
      
-          
  });
 
 </script>

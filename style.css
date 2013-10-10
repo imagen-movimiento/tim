@@ -322,6 +322,9 @@ nav.top-bar {
     /* width: 300px; */
     height: 100%;
     box-sizing:border-box;
+    -moz-box-shadow: 6px 3px 4px #222;
+    -webkit-box-shadow: 6px 3px 4px #222;
+    box-shadow: 6px 3px 4px #222;
 
 }
 
@@ -345,8 +348,10 @@ nav.top-bar {
     left:100%;
     width:0;
     z-index:992;
-    border-right:1px solid #ccc;
+
+    z-index:3;
 }
+
 #nada {
     background: #45484d; /* Old browsers */
     background: -moz-linear-gradient(left,  #45484d 0%, #000000 100%); /* FF3.6+ */
@@ -372,7 +377,7 @@ nav.top-bar {
     box-sizing: border-box;
     overflow-x:hidden;
     overflow-y:auto
-    border-right:1px solid #ccc;
+    
 
 }
 
@@ -384,12 +389,13 @@ nav.top-bar {
   transform: rotate(-90deg);
   margin-top:15px;
   padding-top:15px;
+text-shadow: -2px 4px 2px #222;
 }
 
 
 .pad_div{
-    padding:10px;
-    width:100%;
+    padding:15px 30px;
+    width:0;
 }
 
 .xpndcllps {
@@ -400,6 +406,9 @@ nav.top-bar {
     border: 1px solid #ccc;
     border-radius: 5px;
     top:0;
+    -moz-box-shadow: 3px 3px 4px #222;
+    -webkit-box-shadow: 3px 3px 4px #222;
+    box-shadow: 3px 3px 4px #222;
 }
 
 .xpndcllps:hover {
