@@ -59,6 +59,55 @@
      var anim = 0.0;
 
 
+var s = $('#sliders');
+
+     var cs = new Cortinas( s );
+     var txt = '<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. <a href="http://localhost/web/tim/pagina-ejemplo/">liga</a></p>';
+
+
+
+
+     var inicio = $('<div>').append( $('#canvas').detach() );
+
+     inicio.append( $('#menu').detach() );
+
+
+     cs.añadir( "hola", inicio );
+     /* cs.añadir("hola",txt); */
+
+    
+     //     cs.quitar();
+
+
+     cs.collapse();
+
+
+     var cortinas = cs.cortinas;
+/*
+     for(i in cortinas)
+     {
+         var links = cortinas[i].contenido.find('a');
+         links.each(
+             function()
+             {
+                 var texto = $(this).text();
+
+                 var contenido = "...";
+                 var cortinasParent = cortinas[i].parent;
+                 $(this).click(
+                     function(e)
+                     {
+                         e.preventDefault();
+                         e.stopPropagation();
+                         cortinasParent.añadir( texto, contenido);
+                         cortinasParent.cortinas[cortinas.length-1].expand();
+                         
+                     });
+             });
+         
+     }
+*/
+
      var showLis = function( li, r, x, y, cX, cY, clockwise, speed ){
 
          var sublis = li.find('li');
@@ -277,6 +326,7 @@
      var alllis = $('#menu li');
      tim.offset({ left : cX + x - 50, top : cY + y - 30 });
 
+
      alllis.click(function(e){
          
          currentLi = $(this);
@@ -306,7 +356,7 @@
          mouseY = e.pageY;
      });
      
-     
+     /*
      $('#sidebar .links li').click(function(e){
          dos.animate({'left':-width * 1.675},1000);
          tres.animate({'left':-width * 0.925 },1000);
@@ -325,7 +375,7 @@
 
      $('.single .contenido').columnize({width:'200px'});
 
-
+*/
 
 
 
@@ -335,45 +385,6 @@
 
 
     
-var s = $('#sliders');
-
-     var cs = new Cortinas( s );
-     var txt = '<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. <a href="http://google.com">Link</a></p>';
-
-
-     cs.añadir("hola",txt);
-
-    
-     //     cs.quitar();
-
-
-     cs.collapse();
-
-
-     var cortinas = cs.cortinas;
-
-     for(i in cortinas)
-     {
-         var links = cortinas[i].contenido.find('a');
-         links.each(
-             function()
-             {
-                 var texto = $(this).text();
-
-                 var contenido = "...";
-                 var cortinasParent = cortinas[i].parent;
-                 $(this).click(
-                     function(e)
-                     {
-                         e.preventDefault();
-                         e.stopPropagation();
-                         cortinasParent.añadir( texto, contenido);
-                         cortinasParent.cortinas[cortinas.length-1].expand();
-                         
-                     });
-             });
-         
-     }
 
      
  });

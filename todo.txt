@@ -1,1 +1,20 @@
-1.
+1. revisar bien cómo se están cargando los links del menú circular
+2. revisar si está colapasando bien
+
+3. pensar cḿo resolver el tema del menú lateral que quiero compartir entre sliders // quizás mandar aa la v*rga esto?
+
+inicio - menu
+
+laboratorio de código cretivo
+
+proyectos
+archivo de proyectos
+
+
+talleres
+archivo de taller
+
+recursos didácticos
+- ligas a entradas
+
+
