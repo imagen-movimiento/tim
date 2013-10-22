@@ -317,35 +317,53 @@ var s = $('#sliders');
      var particulas = [];
      
      for(var i = 0; i < 10; i++){
-         particulas.push({ x : Math.random()*sw, y: Math.random() * sh, velX: Math.random() * 30 - 15, velY: Math.random() * 30 - 15 });
+         particulas.push({
+             x : Math.random() * sw,
+             y: Math.random() * sh,
+             velX: Math.random() * 30 - 15,
+             velY: Math.random() * 30 - 15 
+         });
      }
      
      
      var lis = $('#menu > li');
      var sublis = $('#menu li ul li');
-     var alllis = $('#menu li');
+     var alllis = $('#menu li a');
      tim.offset({ left : cX + x - 50, top : cY + y - 30 });
 
-
+     alllis.attr('onclick',function(){ return false; });
+     
      alllis.click(function(e){
          
          currentLi = $(this);
 
-         // currentLi.unbind();
+         console.log(123);
+         
+         currentLi.unbind( 'click' );
+
+         var url = currentLi.find('a').attr('href');
+
 
          e.preventDefault();
          e.stopPropagation();
          
-         var url = currentLi.find('a').attr('href');
+
          
          $.get(url, function(data) {
+console.log("222");
+
+/*
              dos.html(data);
              setupPost();
              toggleMenu();       
+*/
+         return false;
+
          });
 
+         return false;
 
-         
+       
      });
 
 
@@ -356,7 +374,22 @@ var s = $('#sliders');
          mouseY = e.pageY;
      });
      
+     $('a').click(function(e){
+
+         console.log("kliklink!");
+
+         e.preventDefault();
+         e.stopPropagation();
+         
+         return false;
+
+     });
+
+
+
+
      /*
+
      $('#sidebar .links li').click(function(e){
          dos.animate({'left':-width * 1.675},1000);
          tres.animate({'left':-width * 0.925 },1000);
@@ -375,17 +408,25 @@ var s = $('#sliders');
 
      $('.single .contenido').columnize({width:'200px'});
 
+      */
+
+
+
+
+
+
+/*
+     si una sección tiene #subblog
+     
+     animar su entrada:
+                  - Conocer el ancho de la columna de #subblog.
+                  
+     -
+     b)
+
 */
 
-
-
-
-
-
-
-
-    
-
+     
      
  });
 

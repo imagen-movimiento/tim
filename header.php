@@ -29,6 +29,7 @@
 <script type="text/javascript" src="<?php echo themeDir(); ?>/scripts/raphael/raphael-min.js"></script>
 <script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/columnizer/src/jquery.columnizer.js" type="text/javascript"></script>
 
+<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/scripts/collapsable.js/collapsable.css"/>
 <script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/collapsable.js/collapsable.js" type="text/javascript"></script>
 
 <?php
@@ -105,7 +106,7 @@ $sublis = "";
 $query = new WP_Query(array('post_type'=>'proyecto_tim'));
 while($query->have_posts()) {
   $query -> the_post(); $p = foo_post();
-  $sublis .= foo_li("","",foo_post()['ttl']);
+  $sublis .= foo_li("","",$p['ttl'],$p['url']);
 }
 
 $sublis = foo_ul("","",$sublis);
