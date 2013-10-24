@@ -9,7 +9,7 @@ while( have_posts() ) {
     $echo .= foo_div("","titulo",$foo['ttl']);
     $echo .= foo_div("","imagen", foo_img( $foo['img'] ) );
     $echo .= foo_div("","contenido", $foo['cnt'] );
-    $echo = foo_div("","lcc", $echo );
+    $echo = foo_div("","entrada_proyecto", $echo );
     echo $echo; 
   }
 

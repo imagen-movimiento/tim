@@ -255,6 +255,16 @@ body,
 }
 
 
+.posts .post {
+
+}
+
+
+.posts .post .titulo {
+    width:100%;
+}
+
+
 #talleres .texto div  {
     padding:10px;
     font-size:17px;
@@ -313,4 +323,37 @@ nav.top-bar {
     width:1000%;
     height:100%;
 
+}
+
+
+
+/* archivos y posts */
+
+
+/* SINGLE */
+
+.single .texto {
+    padding:10px 0;
+    width:95%;
+}
+
+.single .principal img {
+    margin:10px 0;
+}
+
+.sidebar_single {
+    overflow-y: auto;
+    
+    border:2px solid #333;
+
+}
+
+
+.collapsable .row {
+    max-width: 100%;
+}
+
+
+#miembros .row {
+    max-width: 62.5em;
 }

@@ -26,4 +26,17 @@ function foo_excerpt( $text ) {
 }
 add_filter( 'get_the_excerpt', 'foo_excerpt', 999 );
 
+
+
+
+
+
+add_filter('init', 'add_query_vars');
+function add_query_vars() {
+  global $wp;
+  $wp->add_query_var('parent');
+  $wp->add_query_var('parent_term');
+}
+
+
 ?>

@@ -173,4 +173,6 @@ $lis .= foo_li("","", foo_link( 'Proyectos' . $sublis, $link ) );
 3. configurar links de aquello que se meta al slider
 
 */
+
+
 ?>

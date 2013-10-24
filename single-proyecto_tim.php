@@ -1,9 +1,6 @@
 <?php
 $post_type='miembro';
 
-$slug = get_query_var( 'parent_term' );
-
-
 if ( have_posts() ) {
     while ( have_posts() ) {
         the_post();
@@ -13,8 +10,7 @@ if ( have_posts() ) {
         $postStr = "";
         $postSidebar = "";
 
-        $post_ID = $p['ID'];
-
+        $slug = $post->post_name;
         $titulo = $p['ttl'];
 
         $img = foo_featImg('medium');
@@ -38,7 +34,6 @@ if ( have_posts() ) {
 
 
 $args = array( 'post_type' => 'entrada_proyecto',
-              'post__not_in' => array($post_ID),
               'tax_query' => array(
 	array(
 	    'taxonomy' => 'proyecto',
@@ -114,3 +109,23 @@ if( $q->have_posts() ) {
 
 </div> <!-- row -->
 
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+
+     var setupSizes = function() {
+
+         var wH = $(window).height();
+         var sidebar = $('.sidebar_single');
+         console.log(sidebar.length);
+ var top = sidebar.offset().top;
+ 
+ sidebar.height( wH - top - 60 );
+
+
+ }
+
+ setupSizes();
+
+});
+</script>

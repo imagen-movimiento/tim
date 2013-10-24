@@ -1,21 +1,18 @@
 <?php
 $post_type='miembro';
 
-$slug = get_query_var( 'parent_term' );
-
-
 if ( have_posts() ) {
     while ( have_posts() ) {
         the_post();
 
         $p = foo_post();
+
+        $titulo = $p['ttl'];
+        $slug = $post->post_name;
+
         $echo = "";
         $postStr = "";
         $postSidebar = "";
-
-        $post_ID = $p['ID'];
-
-        $titulo = $p['ttl'];
 
         $img = foo_featImg('medium');
         $postStr .= foo_link( foo_img( $img ), $img );
@@ -37,11 +34,10 @@ if ( have_posts() ) {
 
 
 
-$args = array( 'post_type' => 'entrada_proyecto',
-              'post__not_in' => array($post_ID),
+$args = array( 'post_type' => 'proyecto_tim',
               'tax_query' => array(
 	array(
-	    'taxonomy' => 'proyecto',
+	    'taxonomy' => 'miembro',
 	    'field' => 'slug',
 	    'terms' => $slug
 	)
@@ -57,18 +53,24 @@ if( $q->have_posts() ) {
     while( $q->have_posts() ) {
         $q->the_post();
         $p = foo_post();
-        $postStr = "";
 
+        $postStr = "";
         $postStr .= foo_div("", "titulo", foo_h( $p['ttl'], 4 ) );
-        $postStr .= foo_img( foo_thumb( $p['img'], 300, 200 ) );
+        $postStr .= foo_div("", "imagen", foo_img( foo_thumb( $p['img'], 300, 200 ) ) );
         $postStr .= foo_div("", "extracto", $p['ext'] );
-        $qurl = add_query_arg( 'parent_term', $slug, $p['url'] );
-        $proyectos .= foo_div( "", "sub_post proyecto_miembro", $postStr , $qurl );
+
+        $proyectos .= foo_div( "", "sub_post proyecto_miembro", $postStr , $p['url'] );
+
+
+
+   
     }
+  
+
 }
 
 
-     $postSidebar .= foo_ul("","proyectos",$proyectos);
+     $postSidebar .= foo_h("Proyectos",3) . foo_ul("","proyectos",$proyectos);
 
 /*
         $lis = "";
@@ -94,7 +96,7 @@ if( $q->have_posts() ) {
 
     <header>
 	<hgroup>
-	    <h2><?php echo $titulo;  ?></h2>
+	    <h2><?php echo $titulo; ?></h2>
 	</hgroup>
     </header>
 

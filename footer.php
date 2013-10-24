@@ -72,7 +72,7 @@ var s = $('#sliders');
      inicio.append( $('#menu').detach() );
 
 
-     cs.añadir( "hola", inicio );
+     cs.añadir( "Menú", inicio );
      /* cs.añadir("hola",txt); */
 
     
@@ -337,7 +337,7 @@ var s = $('#sliders');
          
          currentLi = $(this);
 
-         console.log(123);
+
          
          currentLi.unbind( 'click' );
 
@@ -346,21 +346,14 @@ var s = $('#sliders');
 
          e.preventDefault();
          e.stopPropagation();
-         
-
+     
          
          $.get(url, function(data) {
-console.log("222");
 
-/*
-             dos.html(data);
-             setupPost();
-             toggleMenu();       
-*/
          return false;
 
          });
-
+     
          return false;
 
        
@@ -375,8 +368,6 @@ console.log("222");
      });
      
      $('a').click(function(e){
-
-         console.log("kliklink!");
 
          e.preventDefault();
          e.stopPropagation();
@@ -424,6 +415,18 @@ console.log("222");
      -
      b)
 
+
+
+
+archivos
+- lista de posts con la clase "loadInPlace"
+
+
+
+jquery_
+
+si tiene la clase loadInPlace -> cargar en la misma pag
+
 */
 
      
@@ -436,3 +439,5 @@ console.log("222");
 
 
 </html>
+
+
