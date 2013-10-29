@@ -54,7 +54,7 @@ if( $q->have_posts() ) {
         $p = foo_post();
         $postStr = "";
 
-        $postStr .= foo_div("", "titulo", foo_h( $p['ttl'], 4 ) );
+        $postStr .= foo_div("", "title", foo_h( $p['ttl'], 4 ) );
         $postStr .= foo_img( foo_thumb( $p['img'], 300, 200 ) );
         $postStr .= foo_div("", "extracto", $p['ext'] );
         $qurl = add_query_arg( 'parent_term', $slug, $p['url'] );

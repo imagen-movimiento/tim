@@ -55,11 +55,11 @@ if( $q->have_posts() ) {
         $p = foo_post();
 
         $postStr = "";
-        $postStr .= foo_div("", "titulo", foo_h( $p['ttl'], 4 ) );
+        $postStr .= foo_div("", "title", foo_h( $p['ttl'], 4 ) );
         $postStr .= foo_div("", "imagen", foo_img( foo_thumb( $p['img'], 300, 200 ) ) );
         $postStr .= foo_div("", "extracto", $p['ext'] );
 
-        $proyectos .= foo_div( "", "sub_post proyecto_miembro", $postStr , $p['url'] );
+        $proyectos .= foo_div( "", "sub_post proyecto_miembro", foo_link($postStr , $p['url'] ) );
 
 
 

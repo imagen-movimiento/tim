@@ -22,7 +22,7 @@ if( $q->have_posts() ) {
 
         $post .= foo_div("","imagen", foo_img( foo_thumb( $p['img'], 500, 300 ) ) );
 
-        $post .= foo_div("","titulo",foo_h($p['ttl'],4));
+        $post .= foo_div("","title",foo_h($p['ttl'],4));
         
         $post = foo_div("", $claseS . " post large-4 columns", $post, $p['url'] );
         

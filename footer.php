@@ -62,6 +62,21 @@
 var s = $('#sliders');
 
      var cs = new Cortinas( s );
+
+     cs.expandCallback = function()
+     { 
+      if( cs.active > 0 )
+      {
+         $('.top-bar').animate({marginTop:0},1000);
+             
+         }
+      else {
+         $('.top-bar').animate({marginTop:-45},1000);
+             
+         }
+
+      }
+
      var txt = '<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. <a href="http://localhost/web/tim/pagina-ejemplo/">liga</a></p>';
 
 

@@ -10,7 +10,14 @@ li {
 }
 
 body {
-/* overflow: hidden; */
+    overflow: hidden;
+}
+
+a {
+    color:#525456;
+}
+a:hover {
+    color:#000;
 }
 
 html,
@@ -126,7 +133,7 @@ body,
 
 }
 #menu_titulo {
-
+    display:none;
     font-weight:bold;
     font-size:58px;
     z-index:10;
@@ -284,6 +291,16 @@ body,
 
 nav.top-bar {
     z-index:999;
+    margin-top:-45px;
+    margin-bottom:0;
+}
+nav.top-bar, 
+nav.top-bar li,
+nav.top-bar li a {
+
+    background-color:#eee !important;
+    color:#545556;
+
 }
 
 #menu_arriba li {
@@ -307,7 +324,7 @@ nav.top-bar {
 #sliders_mask {
     display: inline-block;
     margin-top:0px;
-    position:absolute;
+    /* position:absolute; */
     width:100%;
     z-index:9999;
     margin-left:0;
@@ -345,9 +362,15 @@ nav.top-bar {
     overflow-y: auto;
     
     border:2px solid #333;
-
+}
+.sidebar_single .sub_post {
+    width:90%;
+    margin:5%;
 }
 
+.sidebar_single .sub_post:hover {
+    background-color:#aaa;
+}
 
 .collapsable .row {
     max-width: 100%;
@@ -356,4 +379,28 @@ nav.top-bar {
 
 #miembros .row {
     max-width: 62.5em;
+}
+
+
+
+
+
+
+
+
+
+.txt_vertical {
+    color:#525556;
+    text-shadow: 2px 2px 3px #aaa;
+}
+
+
+.collapsable {
+    border-right:1px solid #aaa;
+
+    box-sizing:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    box-shadow: none;
+
 }
