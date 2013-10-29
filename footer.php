@@ -337,20 +337,16 @@ var s = $('#sliders');
          
          currentLi = $(this);
 
-
-         
          currentLi.unbind( 'click' );
 
          var url = currentLi.find('a').attr('href');
 
-
          e.preventDefault();
          e.stopPropagation();
      
-         
          $.get(url, function(data) {
 
-         return false;
+             return false;
 
          });
      
