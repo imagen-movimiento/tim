@@ -75,14 +75,17 @@ add_action( 'save_post', 'proyecto_save_postdata' );
 
 function fechas_taller_meta_box($post) {
 
-  $nombres_dias = array ( 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sabado', 'domingo' );
+//  $nombres_dias = array ( 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sabado', 'domingo' );
 
   wp_enqueue_script( 'jquery-ui-datepicker' );
   wp_enqueue_style( 'jquery-ui-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/smoothness/jquery-ui.css', true);
 
   $fecha_inicio = get_post_meta( $post->ID, 'fecha_inicio', true  );
   $fecha_final = get_post_meta( $post->ID, 'fecha_final', true  );
-  $dias_checked = get_post_meta( $post->ID, 'dias_semana', true  );
+  $horarios = get_post_meta( $post->ID, 'horarios', true  );
+  $lugar = get_post_meta( $post->ID, 'lugar', true  );
+
+//  $dias_checked = get_post_meta( $post->ID, 'dias_semana', true  );
   
   wp_nonce_field( plugin_basename( __FILE__ ), 'fechas_taller_noncename' );
   
@@ -91,36 +94,50 @@ function fechas_taller_meta_box($post) {
 <form id="fechas_form">
   <div id="fechas">
 
-Del
+Fecha de inicio: 
     <input class="fecha" name="fecha_inicio" type="textbox" value="<?php echo $fecha_inicio; ?>"/>
 </br>
-al
+Fecha de final: 
 <input class="fecha" name="fecha_final"  type="textbox" value="<?php echo $fecha_final; ?>"/>  
   </div>
 
-  <div id="dias_semana_div">
-      <?php 
-      foreach( $nombres_dias as $dia ) {
-          if(count($dias_checked[0])>0) {
-              $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="';
-              $echo .= $dia.'" '. ( is_array($dias_checked) && in_array($dia,$dias_checked ) ? 'checked':'' ).'>'.$dia.'</label></li>';
-          }
-          else {
-              $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="';
-              $echo .= $dia.'">'.$dia.'</label></li>';
-          }
-      }
-      
-      echo $echo;
-      ?>
-  </div>
+  <div id="info">
+
+</br>
+Horarios:
+</br>
+<textarea class="horarios" name="horarios" cols="32"><?php echo $horarios; ?></textarea>  
+</br>
+
+Lugar: 
+</br>
+<textarea class="lugar" name="lugar"  cols="32"><?php echo $lugar; ?></textarea>
+</br>
+</div>
+
+  <!-- <div id="dias_semana_div">
+  <?php 
+  foreach( $nombres_dias as $dia ) {
+  if(count($dias_checked[0])>0) {
+  $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="';
+  $echo .= $dia.'" '. ( is_array($dias_checked) && in_array($dia,$dias_checked ) ? 'checked':'' ).'>'.$dia.'</label></li>';
+  }
+  else {
+  $echo .= '<li style="list-style:none;"><label><input type="checkbox" name="dias_semana[]" value="';
+  $echo .= $dia.'">'.$dia.'</label></li>';
+  }
+  }
+  
+  echo $echo;
+  ?>
+  </div> -->
 </form>
 
 
 <script>
  jQuery(document).ready(function(){
    jQuery('.fecha').datepicker({
-     dateFormat : 'dd/mm/yy'
+     dateFormat : 'mm/dd/yy'
    });
  });
 </script>
@@ -150,15 +167,18 @@ function fechas_taller_save_postdata( $post_id ) {
 
   $fecha_inicio = $_POST['fecha_inicio'];
   $fecha_final = $_POST['fecha_final'];
-  
-  $dias = $_POST['dias_semana'];
+  $horarios = $_POST['horarios']; 
+  $lugar = $_POST['lugar']; 
+  //$dias = $_POST['dias_semana'];
   /* $dias = array( $_POST['lunes'], $_POST['martes'], $_POST['miércoles'], $_POST['jueves'], $_POST['viernes'] ); */
 
   
   
-  update_post_meta($post_id, 'dias_semana', $dias );
+//  update_post_meta($post_id, 'dias_semana', $dias );
   update_post_meta($post_id, 'fecha_inicio', $fecha_inicio );
   update_post_meta($post_id, 'fecha_final', $fecha_final );
+  update_post_meta($post_id, 'horarios', $horarios );
+  update_post_meta($post_id, 'lugar', $lugar );
 
 }
 

@@ -85,7 +85,6 @@ if( $q->have_posts() ) {
 
 
 
-
 ?>
 
 <div class="row">

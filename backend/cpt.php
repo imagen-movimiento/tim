@@ -315,6 +315,28 @@ register_taxonomy( 'seccion', array('seccion'), array(
 
 
 
+register_taxonomy( 'taller', array('taller'), array(
+  'hierarchical' => true,
+  'labels' => array(
+    'name' => __( 'Taller' ),
+    'singular_name' => __( 'Taller' ),
+    'search_items' => __( 'Buscar Taller' ),
+    'all_items' => __( 'Todas las Talleres' ),
+    'parent_item' => __( 'Taller Superior' ),
+    'parent_item_colon' => __( 'Taller Superior:' ),
+    'edit_item' => __( 'Editar Taller' ),
+    'update_item' => __( 'Actualizar Taller' ),
+    'add_new_item' => __( 'Añadir Talleres' ),
+    'new_item_name' => __( 'Nombre de taller nuevo' )
+  ),
+  'show_ui' => true,
+  'query_var' => true,
+)
+);
+
+
+
+
 
 
 
@@ -383,6 +405,12 @@ function add_proyecto_term( $post_ID ) {
     wp_insert_term( $post->post_title, 'proyecto' );
 }
 
+
+add_action( 'publish_taller', 'add_taller_term' );
+function add_taller_term( $post_ID ) {
+    $post = get_post( $post_ID ); 
+    wp_insert_term( $post->post_title, 'taller' );
+}
 
 
 
