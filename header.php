@@ -175,4 +175,8 @@ $lis .= foo_li("","", foo_link( 'Proyectos' . $sublis, $link ) );
 */
 
 
+
+echo foo_div("url","hidden",site_url() );
+echo foo_div("ajax-loader","hidden", foo_img( themeDir() . "/img/ajax-loader.gif" ) );
+
 ?>

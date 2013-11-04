@@ -301,6 +301,14 @@ body,
     color:#555;
 }
 
+.lcc > .contenido script {
+
+    display:inline-block !important;
+    padding:30px;
+    background-color:#fafafa;
+}
+
+
 #talleres .post {
     margin-top:20px;
 }
@@ -449,5 +457,26 @@ nav.top-bar li a {
 	-khtml-opacity: 0.9;
 	/* Good browsers */
 	opacity: 0.9;
+
+}
+
+
+
+#ajax-loader  {
+    width:100%;
+    margin-top:100px;
+    text-align:center;
+}
+#ajax-loader img {
+    width:auto !important;
+    height:auto;
+}
+
+
+
+
+.collapsable .contenido {
+    width:auto;
+    /* overflow-y: auto; */
 
 }

@@ -93,6 +93,7 @@ $echo .= $postSidebar;
 	    <hgroup>
 	        <h2><?php echo $titulo; ?></h2>
 	    </hgroup>
+
         </header>
 
         <?php

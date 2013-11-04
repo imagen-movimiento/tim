@@ -35,7 +35,7 @@ while( have_posts() ) {
     wp_reset_query();
     $p = foo_post();
     $echo = "";
-    $echo .= foo_div("","titulo",foo_h( $p['ttl'], 2 ) );
+    $echo .= foo_div("","title",foo_h( $p['ttl'], 2 ) );
     $echo .= foo_div("","imagen", foo_img( foo_thumb( $p['img'], 450, 200 )  ) );
     $echo .= foo_div("","contenido", $p['cnt'] );
 
@@ -46,9 +46,9 @@ while( have_posts() ) {
       $menu .= foo_li( "","",$t->name );
     }
     
-    $echo = foo_div("","lcc post large-6 columns", $echo );
-    $echo .= foo_div("","menu_posts sidebar-3 large-6 columns row", $menu );
-    $echo .= foo_div("","posts sidebar-3 large-6 columns", $posts );
+    $echo = foo_div("","lcc post large-8 columns", $echo );
+    $echo .= foo_div("","menu_posts sidebar-3 large-4 columns row", $menu );
+//    $echo .= foo_div("","posts sidebar-3 large-6 columns", $posts );
 
     $echo = foo_div("","single row", $echo );
 
