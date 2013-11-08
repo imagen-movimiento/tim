@@ -245,7 +245,7 @@ function cpt() {
     'capability_type' => 'post',
     'hierarchical' => true,
     
-    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'sticky', 'page-attributes'),
+    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'sticky', 'custom-fields',  'page-attributes'),
     'has_archive' => true
   ));
 
