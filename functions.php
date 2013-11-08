@@ -36,6 +36,7 @@ function add_query_vars() {
   global $wp;
   $wp->add_query_var('parent');
   $wp->add_query_var('parent_term');
+  $wp->add_query_var('tiempo');
 }
 
 

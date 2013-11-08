@@ -182,11 +182,17 @@ body,
 
 .single {
     padding:30px;
-    position:relative,
+    position:relative;
+    height: 100%;
 }
 
 .single div {
     //margin:10px;
+}
+
+.single.post{
+    height:100%;
+    display: inline-block;
 }
 
 .single #fondo_post {   
@@ -211,10 +217,10 @@ body,
 
 
 .single .sidebar {
-    overflow-Y:scroll;
+    overflow-Y:auto;
     background-color:#333;
     color:#ccc;
-    height:80%;
+    height:90%;
 }
 .single .sidebar .curtain {
     background-color:#000;
@@ -250,7 +256,7 @@ body,
     float:left;
     display:inline-block;
     background-color:#bbb;
-    width:30%;
+    width:100%;
     text-align:center;
 }
 
@@ -272,46 +278,6 @@ body,
 }
 
 
-#talleres .texto div  {
-    padding:10px 0;
-
-}
-
-#talleres .fechas {
-    font-weight:bold;
-    font-size:18px;
-}
-
-#talleres .info  {
-/* right:0; */
-/* text-align: right; */
-
-    margin-bottom:30px;
-
-    font-size:14px;
-    font-size:15px;
-}
-
-#talleres .info > div {
-    margin:10px 0;
-}
-
-
-.lcc h1,h2,h3,h4,h5,h6 {
-    color:#555;
-}
-
-.lcc > .contenido script {
-
-    display:inline-block !important;
-    padding:30px;
-    background-color:#fafafa;
-}
-
-
-#talleres .post {
-    margin-top:20px;
-}
 
 nav.top-bar {
     z-index:999;
@@ -479,4 +445,131 @@ nav.top-bar li a {
     width:auto;
     /* overflow-y: auto; */
 
+}
+
+
+
+.fondo_post,
+.fondo_post img {
+
+    width:100%;
+    height:100%;
+
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+
+
+
+.transparencia,
+.flotante {
+
+    width:95%;
+    height:100%;
+
+    position: absolute;
+    left:0;
+    top:0;
+    padding:5%;
+
+}
+
+.transparencia {
+    background-color: #343434;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+
+    z-index:100;
+
+}
+
+.flotante {
+    z-index: 102;
+}
+
+
+.contenido_post{
+    width:100%;
+    height:90%;
+    display:inline-block;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+#talleres .texto div  {
+    padding:10px 0;
+
+}
+
+#talleres .fechas {
+    font-weight:bold;
+    font-size:18px;
+}
+
+#talleres .info  {
+/* right:0; */
+/* text-align: right; */
+
+    margin-bottom:30px;
+
+    font-size:14px;
+    font-size:15px;
+}
+
+#talleres .info > div {
+    margin:10px 0;
+}
+
+.single.paginalcc {
+    background:rgba(0,0,0,0.5);
+    border-radius:20px;
+
+}
+.paginalcc a,
+.paginalcc h1,
+.paginalcc h2,
+.paginalcc h3,
+.paginalcc h4,
+.paginalcc h5,
+.paginalcc h6 {
+    color:#fff;
+}
+
+.lcc h1,h2,h3,h4,h5,h6 {
+    color:#333;
+}
+
+.paginalcc div {
+    padding:0 !important;
+}
+
+.paginalcc div {
+    color:#fff;
+}
+
+.paginalcc > .contenido script {
+
+    display:inline-block !important;
+    padding:30px;
+    background-color:#fafafa;
+}
+
+.paginalcc .sidebar {
+    background-color:transparent;
+    border:1px solid #aaa;
+    border-radius:10px;
+    padding:10px;
+
+}
+#talleres .post {
+    margin-top:20px;
 }

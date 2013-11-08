@@ -52,7 +52,7 @@ $lis = "";
 
 $link = get_post_type_archive_link('taller');
 $sublis = "";
-$sublis .= foo_li("","", foo_link( 'Oferta', $link  ) );
+//$sublis .= foo_li("","", foo_link( 'Oferta', $link  ) );
 $sublis .= foo_li("","", foo_link( 'Pasados', $link  ) );
 $sublis .= foo_li("","", foo_link( 'Futuros', $link  ) );
 
