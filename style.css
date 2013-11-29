@@ -195,25 +195,36 @@ body,
     display: inline-block;
 }
 
-.single #fondo_post {   
+.single #fondo {   
     position:absolute;
     top:0;
     left:0;
-    width:100%;
-    height:100%;
-    z-indez:-1;
+    width:100%; height:100%;
+    z-index:-1;
 }
 
-.single #fondo_post .behind_curtain img {
-    width:100% !important;
-    height:100% !important;
+.single #fondo img {
+    width:auto;
+    height:auto;
 }
-.single #fondo_post .post {
+.single #fondo .post {
     padding:30px;
     overflow-Y: scroll;
     height:100%;
     text-align:justify;
 }
+
+#fondo,
+#fondo img {
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%; height:100%;
+
+}
+
+
+
 
 
 .single .sidebar {
@@ -238,11 +249,14 @@ body,
     overflow-Y: scroll;
     height:100%;
 }
-.single .post .imagen img {
-    width:100%;
-    height:auto;
+.single .contenido p img {
+    /* width:100%; */
+    /* height:auto; */
+    border: 0pt none;
+    float:left;
+    padding: 15px 30px;
+    padding-left:0;
 }
-
 
 .single .menu_posts li:hover ,
 .single .menu_posts li:hover a {
@@ -327,7 +341,8 @@ nav.top-bar li a {
 }
 
 #sliders {
-    width:1000%;
+    /* width:1000%; */
+    width:100%;
     height:100%;
 
 }
@@ -443,21 +458,9 @@ nav.top-bar li a {
 
 .collapsable .contenido {
     width:auto;
+    height:100%;
     /* overflow-y: auto; */
 
-}
-
-
-
-.fondo_post,
-.fondo_post img {
-
-    width:100%;
-    height:100%;
-
-    position: absolute;
-    left:0;
-    top:0;
 }
 
 

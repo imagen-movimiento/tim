@@ -25,12 +25,14 @@
 
 <title><?php wp_title(); ?></title>
 
+
 <script type="text/javascript" src="<?php echo themeDir(); ?>/scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="<?php echo themeDir(); ?>/scripts/raphael/raphael-min.js"></script>
 <script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/columnizer/src/jquery.columnizer.js" type="text/javascript"></script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/scripts/collapsable.js/collapsable.css"/>
 <script language="javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/scripts/collapsable.js/collapsable.js" type="text/javascript"></script>
+
 
 <?php
 wp_head();

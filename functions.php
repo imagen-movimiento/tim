@@ -167,5 +167,6 @@ add_action( 'wp_ajax_cargar_talleres', 'cargar_talleres' );
 
 
 
+//remove_filter ('the_content', 'wpautop');
 
 ?>

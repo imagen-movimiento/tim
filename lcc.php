@@ -45,14 +45,44 @@ while(have_posts()){
 
 
 
-    $echo = foo_div("","fondo_post", foo_img( $p['img'] ) ) .  $echo;
-
-    echo $echo;    
+        /* $echo = foo_div("fondo","", foo_img( $p['img'] ) ) .  $echo; */
+        // .  $echo;
 
   }
 
 }
 
 
+echo foo_div("fondo");
+
+?>
+<script type="text/javascript">
+
+
+jQuery(document).ready(function($){
+     var fondo = $('#fondo');
+     var cs = $('.collapsable');
+     var parent = fondo.parent().parent();
+     var img = fondo.find('img');
+
+     var fondoW = parent.width() / cs.length ;
+     var fondoH = parent.height();
+
+     fondoW *= 0.97;
+     
+     console.log( parent.attr('class') + fondoW );
+     
+     fondo.width(fondoW);
+     fondo.height(fondoH);
+     img.width(fondoW);
+     img.height(fondoH);
+});
+
+
+</script>
+
+<?php 
+
+echo $echo;    
 
 ?>
