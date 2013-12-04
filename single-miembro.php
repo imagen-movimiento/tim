@@ -26,21 +26,9 @@ if ( have_posts() ) {
    }
 
 }
-
-
-
 $args = array( 'post_type' => 'proyecto_tim',
       'post__in' => $meta_proyectos
-/*
-              'tax_query' => array(
-	array(
-	    'taxonomy' => 'miembro',
-	    'field' => 'slug',
-	    'terms' => $slug
-	)
-    )
-*/
-              );
+);
 
 
 $proyectos = "";
@@ -69,6 +57,8 @@ if( $q->have_posts() ) {
 
 
      $postSidebar .= foo_h("Proyectos",3) . foo_ul("","proyectos",$proyectos);
+
+}
 
 /*
         $lis = "";
