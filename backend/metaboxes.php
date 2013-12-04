@@ -87,16 +87,17 @@ add_action( 'save_post', 'proyecto_save_postdata' );
 function proyectos_miembro_meta_box() {
   global $post;
 
-  
-  $proyectos = get_post_meta($post->ID, 'proyectos', true);
-  
-  $arr = array();
-  $invitados = new WP_Query(array( 'post_type'=>'proyecto_tim','posts_per_page'=>-1 ) );
-  if( $invitados->have_posts() ) {
-    while ( $invitados->have_posts() ) {
-      $invitados->the_post();
+//  delete_post_meta($post->ID, 'proyectos');
+  $proyectos_almacenados = get_post_meta($post->ID, 'proyectos', true);
 
-      array_push( $arr, foo_filter( $post->post_title, 'title' ) );
+  $arrIDs = array();
+  
+  $proyectos = new WP_Query(array( 'post_type'=>'proyecto_tim','posts_per_page'=>-1 ) );
+  if( $proyectos->have_posts() ) {
+    while ( $proyectos->have_posts() ) {
+      $proyectos->the_post();
+
+       array_push( $arrIDs, get_the_ID() );
 
     }
   }
@@ -133,13 +134,16 @@ return false;
     
     if ( $proyectos ) {
       
-      foreach ( $proyectos as $field ) {
+      foreach ( $proyectos_almacenados as $ID ) {
         
         $options = '<option value="" ></option>';
-        
-        foreach( $arr as $t ) {
-          $options .= '<option value="'.$t.'" '.selected($field,$t,0).'> '.$t.'</option>';
-        }
+        foreach( $arrIDs as $arrID ) {		
+		 $titulo = get_post( $arrID ) -> post_title;
+
+	        $options .= '<option value="'.$arrID.'" label="'.$titulo.'" '.selected($ID,$arrID,0).'> '.$t.'</option>';
+
+//	        $options .= '<option value="'.$arrIDs[$i].'" label="'.$t.'" '.selected($field,$t,0).'> '.$t.'</option>';
+	}
         
         $select = '<select name="proyectos[]">'.$options.'</select>';
 
@@ -163,8 +167,10 @@ return false;
 <td>
 <?php
         $options = '<option value="" ></option>';
+        $i=0;
         foreach( $arr as $t ) {
-          $options .= '<option value="'.$t.'">'.$t.'</option>';
+          $options .= '<option value="'.$arrIDs[$i].'" label='.$t.'">'.$t.'</option>';
+          $i++;	       
         }
         $select = '<select name="proyectos[]">'.$options.'</select>';
         echo $select;
@@ -182,8 +188,9 @@ return false;
 <?php
         
         $options = '<option value=""></option>';
-        foreach( $arr as $t ) {
-          $options .= '<option value="'.$t.'">'.$t.'</option>';
+        foreach( $arrIDs as $arrID ) {
+		 $titulo = get_post( $arrID ) -> post_title;
+		 $options .= '<option value="'.$arrID.'" label="'.$titulo.'">'.$titulo.'</option>';
         }
         $select = '<select name="proyectos[]">'.$options.'</select>';
 

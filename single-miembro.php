@@ -21,20 +21,17 @@ if ( have_posts() ) {
 
         $echo .= $postStr;
 
-
-    }
+	$meta_proyectos = get_post_meta( get_the_ID(), 'proyectos' );
+	$meta_proyectos = $meta_proyectos[0];
+   }
 
 }
 
 
 
-
-
-
-
-
-
 $args = array( 'post_type' => 'proyecto_tim',
+      'post__in' => $meta_proyectos
+/*
               'tax_query' => array(
 	array(
 	    'taxonomy' => 'miembro',
@@ -42,6 +39,7 @@ $args = array( 'post_type' => 'proyecto_tim',
 	    'terms' => $slug
 	)
     )
+*/
               );
 
 
